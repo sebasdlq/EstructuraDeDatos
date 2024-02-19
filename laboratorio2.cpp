@@ -8,7 +8,8 @@ void ProtocoloPotencia();
 void ProtocoloFactorial();
 void ProtocoloSerie();
 
-double Potencia(int, int);
+double Potencia(int, int); //Funcion sin referencia
+void PotenciaConReferencia(int base, int exponente, double &resultado);
 int Factorial(int);
 double SumatoriaDeSerie(int, double);
 
@@ -79,6 +80,24 @@ double Potencia(double a, int n){
     return a * Potencia(a, n - 1);
     *///Con Recursividad pero no me gusta porque no es capaz de hacer potencias negativas ni elevado a 0
 }
+void PotenciaConReferencia(int base, int exponente, double &resultado){
+    //Calcula a^n
+    if(base == 0){
+        resultado = 0;
+    }
+    resultado = 1;
+    if(exponente > 0){
+        //Potencias positivas, son multiplicaciones sucesivas
+        for(int i = 0; i<exponente; i++){
+            resultado *= base;
+        }
+    }else{
+        //Potencias negativas, divisiones sucesivas
+        for(int i = 0; i<-exponente; i++){
+            resultado /= base;
+        }
+    }
+}
 int Factorial(int n){
     //Calcula factorial de n
     if(n == 1 || n == 0){
@@ -109,7 +128,11 @@ void ProtocoloPotencia(){
     cout<<"\nIngrese la base: "; cin >> base;
     cout<<"Ingrese el exponente: "; cin >> exponente;
     
+    double res;
+    
     cout << "La potencia es: " << Potencia(base, exponente) << endl;
+    PotenciaConReferencia(base, exponente, res);
+    cout << "La potencia usando referencia es: " << res << endl;
 }
 void ProtocoloFactorial(){
     int num;
@@ -129,3 +152,4 @@ void ProtocoloSerie(){
     
     cout << "La sumatoria es: " << SumatoriaDeSerie(numDeTerminos, x) << endl;
 }
+
