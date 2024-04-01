@@ -1,3 +1,8 @@
+/*
+Sebastian Fernando De La Quintana
+Miguel Angelo Rodriguez Montaño
+*/
+
 #include <iostream>
 using namespace std;
 class cadena
