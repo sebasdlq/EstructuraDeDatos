@@ -42,7 +42,7 @@ void cadena::sacar_string( ) {
 }
 void cadena::intercambiar( ) {
 	cin.ignore();
-	cout << "Pendejo: ";
+	cout << "Cadena a Intercambiar: ";
 	getline(cin, var2);
 	cout << endl << "Intercambia variables";
 	nombre.swap(var2);
